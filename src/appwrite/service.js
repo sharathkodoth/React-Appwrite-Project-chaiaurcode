@@ -60,7 +60,7 @@ export class Service {
         }
     }
 
-    async listPost(queries = [Query.equal("status", "active")]) {
+    async getPosts(queries = [Query.equal("status", "active")]) {
         try {
             return this.databases.listDocuments(conf.appwriteUrl, conf.appwriteCollectionId, queries)
         } catch (error) {
@@ -68,6 +68,7 @@ export class Service {
             return false
         }
     }
+    
 
     //File Upload
     async uploadFile(file){
