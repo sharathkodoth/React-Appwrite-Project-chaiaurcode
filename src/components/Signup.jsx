@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import authService from "../../appwrite/auth";
-import { login } from "../../features/authSlice";
-import { Button, Input, Logo } from "../index"
+import authService from "../appwrite/auth";
+import { login } from "../features/authSlice";
+import { Button, Input, Logo } from "./index"
 import { useDispatch } from "react-redux";
 import { useForm } from 'react-hook-form'
 function Signup() {
@@ -47,14 +47,14 @@ function Signup() {
                 {error && <p className="text-red-400 text-center mt-8">{error}</p>}
                 <form onSubmit={handleSubmit(create)}>
                     <div className="space-y-5">
-                        <input
+                        <Input
                             label="Full Name: "
                             placeholder="Enter your fullname"
                             {...register("name",
                                 { required: true })}
 
                         />
-                        <input
+                        <Input
                             label='Email:'
                             placeholder="Enter your email"
                             type="email"
@@ -67,18 +67,18 @@ function Signup() {
                                     }
                                 })}
                         />
-                        <input
+                        <Input
                             label="Password: "
                             placeholder="Enter your password"
                             type="password"
                             {...register('password',
                                 { required: true })}
                         />
-                        <button
+                        <Button
                             type="submit"
                             className="w-full">
                             Create Account
-                        </button>
+                        </Button>
                     </div>
                 </form>
             </div>
