@@ -1,13 +1,12 @@
-import './App.css'
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import authService from './appwrite/auth'
+import './App.css'
+import authService from "./appwrite/auth"
 import { login, logout } from "./features/authSlice"
-import { Header, Footer } from './components/index'
-import { Outlet } from 'react-router'
+import { Footer, Header } from './components'
+import { Outlet } from 'react-router-dom'
 
 function App() {
-
   const [loading, setLoading] = useState(true)
   const dispatch = useDispatch()
 
@@ -27,11 +26,13 @@ function App() {
     <div className='min-h-screen flex flex-wrap content-between bg-gray-400'>
       <div className='w-full block'>
         <Header />
-        Here Comes nothing...<Outlet />
+        <main>
+          TODO:  <Outlet />
+        </main>
         <Footer />
       </div>
-
-    </div>) : (<div className='bg-rose-400'>Loading...</div>)
+    </div>
+  ) : null
 }
 
 export default App
