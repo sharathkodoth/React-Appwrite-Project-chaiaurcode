@@ -15,19 +15,13 @@ function Post() {
   const isAuthor = post && userData ? post.userId === userData.$id : false;
 
   useEffect(() => {
-   
-      appwriteService.getPost(slug)
-        .then((post) => {
-          setPost(post);
-        })
-        .catch((error) => {
-          // Handle the error here
-          console.error("Error fetching post:", error);
-          // Consider displaying an error message to the user
-          // Or redirecting to a different route (e.g., an error page)
+    if (slug) {
+        appwriteService.getPost(slug).then((post) => {
+            if (post) setPost(post);
+            else navigate("/");
         });
-    
-  }, [slug, navigate]);
+    } else navigate("/");
+}, [slug, navigate]);
 
 
   const deletePost = () => {
@@ -49,7 +43,7 @@ function Post() {
           />
           {isAuthor && (
             <div className="absolute right-6 top-6">
-              <Link to={`/edit-post/:${post.$id}`}>
+              <Link to={`/edit-post/${post.$id}`}>
                 <Button bgColor="bg-green-500" className="mr-3">
                   Edit
                 </Button>
