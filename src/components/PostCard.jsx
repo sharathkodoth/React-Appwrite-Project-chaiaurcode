@@ -7,8 +7,8 @@ function PostCard({ $id, title, featuredImage, slug }) {
     , [featuredImage])
   return (
     <Link to={`/post/${$id}`}>
-      <div className="w-full bg-gray-100 rounded-xl p-4">
-        <div className="w-full justify-center mb-4">
+      <div className=" bg-neutral-100 shadow-md rounded-xl p-3">
+        <div className="w-full justify-center mb-3">
           <img
             src={filePreview}
             alt={title}
@@ -17,7 +17,7 @@ function PostCard({ $id, title, featuredImage, slug }) {
           />
         </div>
 
-        <h2 className="text-xl font-bold">{title}</h2>
+        <h2 className="text-md font-serif">{title}</h2>
       </div>
     </Link>
   );
