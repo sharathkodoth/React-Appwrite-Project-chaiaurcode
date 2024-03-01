@@ -29,10 +29,10 @@ function Home() {
         )
     }
     return (
-        <div className="">
-            <div className="masonry sm:masonry-sm md:masonry-md gap-10 p-10">
+        <div className="bg-neutral-300">
+            <div className="masonry sm:masonry-sm md:masonry-md gap-10 p-20 mx-28">
                 {posts.map((post) => (
-                    <div key={post.$id} className="pb-6 break-inside">
+                    <div key={post.$id} className="pb-2 break-inside">
                         <PostCard {...post} />
                     </div>
                 ))}
