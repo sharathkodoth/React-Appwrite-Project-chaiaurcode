@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, PostCard } from "../components";
+import { PostCard } from "../components";
 import appwriteService from "../appwrite/service";
 
 function AllPosts() {
@@ -14,16 +14,17 @@ function AllPosts() {
 
   return (
     <div className="w-full h-full">
-      <Container>
-        <div className="flex flex-wrap ">
-          {posts.map((post) => (
-            <div key={post.$id} className="w-1/4 p-2">
-              <PostCard {...post} />
+      
+      <div>
+            <div className="masonry sm:masonry-sm md:masonry-md gap-10 p-20 mx-28">
+                {posts.map((post) => (
+                    <div key={post.$id} className="pb-2 break-inside">
+                        <PostCard {...post} />
+                    </div>
+                ))}
             </div>
-            
-          ))}
         </div>
-      </Container>
+      
     </div>
   );
 }
