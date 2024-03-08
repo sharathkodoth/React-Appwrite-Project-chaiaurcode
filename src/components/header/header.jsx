@@ -37,7 +37,7 @@ function Header() {
   ];
 
   return (
-    <header className="py-3 shadow bg-emerald-300 font-semibold">
+    <header className="py-3 shadow bg-neutral-800 font-semibold">
       <Container>
         <nav className="flex">
           <div className="mr-4">
@@ -45,13 +45,13 @@ function Header() {
               <Logo width="70px" />
             </Link>
           </div>
-          <ul className="flex ml-auto">
+          <ul className="flex ml-auto text-neutral-200">
             {navItems.map((item) =>
               item.active ? (
                 <li key={item.name}>
                   <button
                     onClick={() => navigate(item.slug)}
-                    className="inline-bock px-6 py-2  hover:bg-blue-100 duration-200  rounded-full"
+                    className="inline-bock px-6 py-2"
                   >
                     {item.name}
                   </button>

@@ -29,7 +29,7 @@ function Home() {
         )
     }
     return (
-        <div className="bg-neutral-300">
+        <div className="bg-neutral-900">
             <div className="masonry sm:masonry-sm md:masonry-md gap-10 p-20 mx-28">
                 {posts.map((post) => (
                     <div key={post.$id} className="pb-2 break-inside">
