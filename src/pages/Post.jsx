@@ -78,9 +78,9 @@ function Post() {
         {post && (
           <>
             <div className="w-full mb-6">
-              <h1 className="text-2xl font-bold">{post.title}</h1>
+              <h1 className="text-2xl font-bold text-neutral-100">{post.title}</h1>
             </div>
-            <div className="browser-css">{parse(post.content)}</div>
+            <div className="browser-css text-zinc-300">{parse(post.content)}</div>
           </>
         )}
       </Container>

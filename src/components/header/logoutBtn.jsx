@@ -1,23 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import authService from "../../appwrite/auth";
 import { logout } from "../../features/authSlice";
 
 function LogoutBtn() {
+  const [loggingOut, setLoggingOut] = useState(false);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const logoutHandler = () => {
-    authService.logout().then(() => {
+
+  const logoutHandler = async () => {
+    setLoggingOut(true);
+    try {
+      await authService.logout();
       dispatch(logout());
-    });
+      navigate('/login');
+    } catch (error) {
+      console.error("Logout failed:", error);
+      // Handle logout error (e.g., display error message)
+    } finally {
+      setLoggingOut(false);
+    }
   };
+
   return (
     <button
-      className="inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full"
+      className={`inline-block px-6 py-2 duration-200 rounded-full ${loggingOut ? 'cursor-not-allowed opacity-50' : 'hover:bg-blue-100'}`}
       onClick={logoutHandler}
+      disabled={loggingOut}
     >
-      Logout
+      {loggingOut ? 'Logging out...' : 'Logout'}
     </button>
   );
 }
 
 export default LogoutBtn;
+
+
