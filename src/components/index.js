@@ -12,6 +12,7 @@ import Login from "./Login";
 import Postform from "./Post-Form/Postform";
 import PostCard from "./PostCard";
 import AuthLayout from "./AuthLayout"
+import Spinner from "./Spinner";
 
 export {
   Header,
@@ -28,4 +29,5 @@ export {
   Postform,
   PostCard,
   AuthLayout,
+  Spinner
 };
