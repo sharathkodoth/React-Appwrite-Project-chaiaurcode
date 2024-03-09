@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import appwriteService from "../appwrite/service";
-import { Container, PostCard } from '../components';
+import { Container, PostCard, Spinner } from '../components';
 
 function Home() {
     const [posts, setPosts] = useState([]);
@@ -28,17 +28,9 @@ function Home() {
     }, []);
 
     return (
-        <div className="bg-neutral-900">
+        <div className='mt-5'>
             {isLoading ? (
-                <div className="w-full py-8 mt-4 text-center">
-                    <Container>
-                        <div className="flex justify-center">
-                            <div className="p-2">
-                                <h1 className="text-2xl font-bold">Loading posts...</h1>
-                            </div>
-                        </div>
-                    </Container>
-                </div>
+                <Spinner />
             ) : error ? (
                 <div className="w-full py-8 mt-4 text-center">
                     <Container>

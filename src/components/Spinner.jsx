@@ -1,7 +1,7 @@
 import React from "react";
 import { BeatLoader } from "react-spinners";
 
-const Spinner = ({ color = "#4F46E5", size = 15 }) => {
+const Spinner = ({ color = "white", size = 20 }) => {
   return (
     <div className="flex justify-center items-center h-full">
       <BeatLoader color={color} size={size} />

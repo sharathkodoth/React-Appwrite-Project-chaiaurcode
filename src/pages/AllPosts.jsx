@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { PostCard } from "../components";
+import { PostCard, Spinner } from "../components";
 import appwriteService from "../appwrite/service";
 
 function AllPosts() {
@@ -26,9 +26,9 @@ function AllPosts() {
   }, []);
 
   return (
-    <div className="w-full h-full">
+    <div className="mt-5 w-full h-full">
       {isLoading ? (
-        <p className="text-center py-10">Loading posts...</p>
+        <Spinner/>
       ) : (
         <div>
           <div className="masonry sm:masonry-sm md:masonry-md gap-10 p-20 mx-28">
