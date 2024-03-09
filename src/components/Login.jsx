@@ -27,8 +27,8 @@ function Login() {
     }
   };
   return (
-    <div className="flex items-center justify-center w-full">
-      <div className="mx-auto w-full max-w-lg bg-gray-100 rounded-lg p-10 border border-black/10">
+    <div className="flex items-center justify-center w-full mt-8 font-mono">
+      <div className="mx-auto w-full max-w-lg bg-white rounded-2xl p-10 shadow-lg">
         <div className="mb-2 flex justify-center">
           <span className="inline-block w-full max-w-[100px]">
             <Logo width="100%" />
@@ -37,7 +37,7 @@ function Login() {
         <h2 className="text-center font-semibold text-2xl leading-tight">
           Sign in to your account
         </h2>
-        <p className="mt-2 text-center text-base text-black/70">
+        <p className="mt-2 text-center text-base text-white/70">
           Don&apos;t have any account?&nbsp;
           <Link
             to="/signup"
@@ -51,6 +51,7 @@ function Login() {
           <div className="space-y-5">
             <Input
               label="Email: "
+              className="border-2 focus:border-zinc-800"
               placeholder="Enter your email"
               type="email"
               {...register("email", {
@@ -64,13 +65,17 @@ function Login() {
             />
             <Input
               label="Password: "
+              className="border-2 focus:border-zinc-800"
               placeholder="enter your password"
               type="password"
               {...register("password", {
                 required: true,
               })}
             />
-            <Button type="submit" className="w-full">
+            <Button
+              type="submit"
+              className="w-full hover:bg-blue-600 duration-300"
+            >
               Submit
             </Button>
           </div>
